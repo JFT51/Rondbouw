@@ -12,16 +12,45 @@ body {
 header {
     background-color: #4a5d23; /* Deep, natural green */
     color: #ffffff;
-    padding: 1rem 0;
+    padding: 0.5rem 0; /* Reduced padding for sticky header */
     text-align: center;
     border-bottom: 5px solid #c89f68; /* Regal gold/brown accent */
-}
-
-.logo-container {
+    position: fixed; /* Make header sticky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure header stays on top of other content */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 0.5rem;
+    justify-content: space-between; /* For spacing logo and nav/hamburger */
+    padding-left: 20px; /* Add some padding for content within header */
+    padding-right: 20px;
+}
+
+/* main's padding-top is now dynamically set by JavaScript to match header height */
+
+.logo-container {
+    display: flex; /* Keep this for logo and title alignment */
+    align-items: center;
+    /* justify-content: center; Removed to allow space-between in header */
+    padding-bottom: 0; /* Reset as header padding handles it */
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    order: 3; /* Ensure hamburger is after nav in source for non-JS, but can be visually positioned */
+}
+
+/* Default Nav styling (Desktop) */
+nav {
+    order: 2; /* Nav comes before hamburger visually if needed, or just rely on flex order */
 }
 
 #logo {
@@ -146,6 +175,9 @@ section h2 {
     background-color: #f4f1ea;
 }
 
+#evenementen {
+    background-color: #e9e4d9; /* Alternating background color */
+}
 
 /* Footer Styles */
 footer {
@@ -157,27 +189,77 @@ footer {
 }
 
 /* Responsive Design Adjustments */
+/* Mobile Navigation Styles */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
+    header {
+        /* Adjust header padding for mobile if needed, e.g. less vertical padding */
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .logo-container {
+        /* Ensure logo container doesn't take full width if header is flex space-between */
     }
 
     #logo {
-        height: 60px;
-        margin-right: 15px;
+        height: 50px; /* Smaller logo on mobile */
+        margin-right: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Smaller title on mobile */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger */
+        z-index: 1002; /* Above nav panel but below potential modal overlays */
+        position: relative; /* For z-index stacking context if needed */
+    }
+
+    nav {
+        /* Mobile navigation panel */
+        position: fixed;
+        top: 0;
+        left: -100%; /* Start off-screen */
+        width: 80%; /* Or your preferred width */
+        max-width: 300px;
+        height: 100vh;
+        background-color: #3e4c1e; /* Same as desktop nav or slightly different */
+        padding-top: 60px; /* Space for close button or header area */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        transition: left 0.3s ease-in-out;
+        z-index: 1001; /* Below hamburger but above main content */
+        overflow-y: auto; /* If nav items exceed screen height */
+    }
+
+    nav.active {
+        left: 0; /* Slide in */
     }
 
     nav ul {
         flex-direction: column;
+        width: 100%;
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    nav ul li {
+        width: 100%;
     }
 
     nav ul li a {
-        padding: 0.7rem 1rem;
+        padding: 1rem 1.5rem; /* Generous padding for touch targets */
         border-bottom: 1px solid #4a5d23; /* Separator for stacked items */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     nav ul li:last-child a {
         border-bottom: none;
+    }
+
+    /* Adjust active link style for mobile if needed */
+    nav ul li a.active {
+        box-shadow: inset 3px 0 0 #e6c392; /* Example: left border for active mobile link */
     }
 
     section {
