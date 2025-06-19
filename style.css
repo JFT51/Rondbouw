@@ -1,0 +1,206 @@
+/* General Body Styles */
+body {
+    font-family: 'Georgia', serif; /* Elegant, classic font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f1ea; /* Light, earthy tone */
+    color: #3a3a3a; /* Dark grey for readability */
+}
+
+/* Header Styles */
+header {
+    background-color: #4a5d23; /* Deep, natural green */
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 5px solid #c89f68; /* Regal gold/brown accent */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+}
+
+#logo {
+    height: 80px; /* Adjust as needed */
+    margin-right: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Trajan Pro', 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* More distinct, regal font for title */
+    font-weight: normal;
+    font-size: 2.5rem;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #3e4c1e; /* Slightly darker green for nav bg */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #c89f68; /* Gold/brown accent on hover */
+    color: #3a3a3a;
+}
+
+nav ul li a.active {
+    /* background-color: #c89f68; */
+    /* color: #3a3a3a; */
+    color: #e6c392; /* Lighter gold for active link text */
+    font-weight: bold;
+    /* A more subtle active indicator that works well when stacked or horizontal */
+}
+
+/* Add a specific border or background for active link if preferred,
+   but ensure it doesn't clash with mobile stacked view borders.
+   For instance, just color and font-weight might be enough. */
+nav ul li a.active {
+    box-shadow: inset 0 -2px 0 #e6c392; /* Subtle underline effect */
+}
+
+
+/* Main Content Sections */
+main {
+    padding: 0; /* Remove padding for full-width sections if desired */
+}
+
+section {
+    padding: 40px 20px;
+    margin: 0; /* Remove default margins */
+    border-bottom: 1px solid #ddd; /* Subtle separator */
+    /* text-align: center; /* Center section titles and content by default */
+}
+
+section h2 { /* Center only the heading */
+    text-align: center;
+}
+
+section p, section ul { /* Align paragraphs and lists to the left for readability */
+    text-align: left;
+    max-width: 800px; /* Constrain width for better readability of text blocks */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px; /* Add some padding if max-width is hit */
+    padding-right: 10px; /* Add some padding if max-width is hit */
+}
+
+section ul {
+    list-style-position: inside; /* Keeps bullets aligned with text if wrapped */
+    padding-left: 20px; /* Ensure bullets have some space */
+}
+
+#menu ul li {
+    margin-bottom: 0.5em; /* Add some space between menu items */
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+section h2 {
+    font-family: 'Trajan Pro', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: #4a5d23; /* Green for section titles */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Specific Section Backgrounds for Variety (Optional) */
+#welkom {
+    background-color: #f4f1ea; /* Default light earthy */
+}
+
+#over-ons {
+    background-color: #e9e4d9; /* Slightly different shade */
+}
+
+#menu {
+    background-color: #f4f1ea;
+}
+
+#sfeer {
+    background-color: #e9e4d9;
+}
+
+#contact {
+    background-color: #f4f1ea;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #3a3a3a; /* Dark grey for footer */
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #logo {
+        height: 60px;
+        margin-right: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 0.7rem 1rem;
+        border-bottom: 1px solid #4a5d23; /* Separator for stacked items */
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    section {
+        padding: 30px 15px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    #logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+}
